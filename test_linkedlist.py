@@ -5,19 +5,42 @@ from node import Node
 
 
 class TestLinkedList(unittest.TestCase):
-    def test_Add(self):
+    def test_add(self):
         one = Node("one")
         two = Node("two")
         ll = linkedlist.LinkedList(one)
         ll.add(two)
-        self.assertEqual(ll.last, one)
-        self.assertEqual(ll.cur, two)
+        self.assertEqual(one.data, ll.head.data)
+        self.assertEqual(two.data, ll.head.next.data)
 
-    def test_Delete(self):
+    def test_delete(self):
         one = Node("one")
         two = Node("two")
+        three = Node("three")
         ll = linkedlist.LinkedList(one)
         ll.add(two)
-        ll.remove()
-        self.assertEqual(ll.cur, one)
-        self.assertIsNone(ll.last)
+        ll.add(three)
+        ll.delete("two")
+        self.assertEqual(one.data, ll.head.data)
+        self.assertEqual(three.data, ll.head.next.data)
+
+    def test_tail(self):
+        one = Node("one")
+        two = Node("two")
+        three = Node("three")
+        ll = linkedlist.LinkedList(one)
+        ll.add(two)
+        ll.add(three)
+        self.assertEqual(three.data, ll.tail().data)
+
+    def test_reverse(self):
+        one = Node("one")
+        two = Node("two")
+        three = Node("three")
+        ll = linkedlist.LinkedList(one)
+        ll.add(two)
+        ll.add(three)
+        ll.reverse()
+        self.assertEqual(three.data, ll.head.data)
+        self.assertEqual(two.data, ll.head.next.data)
+        self.assertEqual(one.data, ll.head.next.next.data)
