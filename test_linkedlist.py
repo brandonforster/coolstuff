@@ -10,5 +10,14 @@ class TestLinkedList(unittest.TestCase):
         two = Node("two")
         ll = linkedlist.LinkedList(one)
         ll.add(two)
-        self.assertEqual(ll.last,one)
-        self.assertEqual(ll.cur,two)
+        self.assertEqual(ll.last, one)
+        self.assertEqual(ll.cur, two)
+
+    def test_Delete(self):
+        one = Node("one")
+        two = Node("two")
+        ll = linkedlist.LinkedList(one)
+        ll.add(two)
+        ll.remove()
+        self.assertEqual(ll.cur, one)
+        self.assertIsNone(ll.last)
