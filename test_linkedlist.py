@@ -62,6 +62,15 @@ class TestLinkedList(unittest.TestCase):
 
         self.assertEqual(expected, actual)
 
+    def test_array_empty(self):
+        ll = linkedlist.LinkedList()
+
+        expected = []
+
+        actual = ll.to_array()
+
+        self.assertEqual(expected, actual)
+
     def test_reverse(self):
         one = Node("one")
         two = Node("two")
@@ -76,9 +85,9 @@ class TestLinkedList(unittest.TestCase):
         expected_middle = two.data
         expected_tail = one.data
 
-        actual_head = ll.data
-        actual_middle = ll.next.data
-        actual_tail = ll.next.next.data
+        actual_head = ll.head.data
+        actual_middle = ll.head.next.data
+        actual_tail = ll.head.next.next.data
 
         self.assertEqual(expected_head, actual_head)
         self.assertEqual(expected_middle, actual_middle)

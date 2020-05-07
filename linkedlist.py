@@ -52,6 +52,10 @@ class LinkedList:
         return self
 
     def to_array(self):
+        # shortcut for empty array
+        if self.head is None:
+            return []
+
         pointer = self.head
         array = [pointer.data]
 

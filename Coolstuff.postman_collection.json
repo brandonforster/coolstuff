@@ -7,6 +7,25 @@
 	"item": [
 		{
 			"name": "Reverse Linked List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc7aac46-9754-4228-974d-71e1f0b2dc96",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Linked list is reversed\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.eql([\"three\", \"two\", \"one\"]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -34,7 +53,68 @@
 			"response": []
 		},
 		{
+			"name": "Reverse Linked List Handles Error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc7aac46-9754-4228-974d-71e1f0b2dc96",
+						"exec": [
+							"pm.test(\"Status code is 500\", function () {",
+							"    pm.response.to.have.status(500);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Not JSON!",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/reverse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"reverse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Ping",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dcc5a93e-0ca9-4b17-8bf7-50d598d172c7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Expected string is received\", function () {",
+							"    var textData = pm.response.text();",
+							"    pm.expect(textData).to.eql(\"ack\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
