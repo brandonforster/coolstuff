@@ -1,3 +1,5 @@
+import json
+
 import node
 
 
@@ -45,3 +47,23 @@ class LinkedList:
             reversed_list = temp
 
         return reversed_list
+
+    def to_array(self):
+        pointer = self.head
+        array = [pointer.data]
+
+        while pointer.next is not None:
+            pointer = pointer.next
+            array.append(pointer.data)
+
+        return array
+
+
+class LinkedListEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, LinkedList):
+            return {
+                "_type": "linkedlist",
+                "value": obj.to_array()
+            }
+        return super(LinkedListEncoder, self).default(obj)
