@@ -5,7 +5,7 @@ class LinkedList:
     def __init__(self, head: node.Node = None):
         self.head = head
 
-    def tail(self):
+    def tail(self) -> node.Node:
         pointer = self.head
 
         while pointer.next is not None:
@@ -13,7 +13,7 @@ class LinkedList:
 
         return pointer
 
-    def add(self, new: node.Node):
+    def add(self, new: node.Node) -> None:
         if self.head is None:
             self.head = new
             return
@@ -22,7 +22,7 @@ class LinkedList:
         new.next = None
         tail.next = new
 
-    def delete(self, data):
+    def delete(self, data) -> None:
         pointer = self.head
 
         while pointer.next.data is not data:
@@ -34,7 +34,7 @@ class LinkedList:
         # no need to reverse if head is null
         # or there is only 1 node.
         if self.head is None or self.head.next is None:
-            return self.head
+            return self
 
         list_to_do = self.head.next
 
@@ -48,7 +48,8 @@ class LinkedList:
             temp.next = reversed_list
             reversed_list = temp
 
-        return reversed_list
+        self.head = reversed_list
+        return self
 
     def to_array(self):
         pointer = self.head
