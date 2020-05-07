@@ -1,10 +1,8 @@
-import json
-
 import node
 
 
 class LinkedList:
-    def __init__(self, head: node):
+    def __init__(self, head: node.Node = None):
         self.head = head
 
     def tail(self):
@@ -15,7 +13,11 @@ class LinkedList:
 
         return pointer
 
-    def add(self, new: node):
+    def add(self, new: node.Node):
+        if self.head is None:
+            self.head = new
+            return
+
         tail = self.tail()
         new.next = None
         tail.next = new
@@ -57,13 +59,3 @@ class LinkedList:
             array.append(pointer.data)
 
         return array
-
-
-class LinkedListEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, LinkedList):
-            return {
-                "_type": "linkedlist",
-                "value": obj.to_array()
-            }
-        return super(LinkedListEncoder, self).default(obj)

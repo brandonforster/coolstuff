@@ -15,6 +15,14 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(one.data, ll.head.data)
         self.assertEqual(two.data, ll.head.next.data)
 
+    def test_add_no_head(self):
+        one = Node("one")
+        ll = linkedlist.LinkedList()
+
+        ll.add(one)
+
+        self.assertEqual(one.data, ll.head.data)
+
     def test_delete(self):
         one = Node("one")
         two = Node("two")
@@ -64,14 +72,14 @@ class TestLinkedList(unittest.TestCase):
 
         ll = ll.reverse()
 
-        expectedHead = three.data
-        expectedMiddle = two.data
-        expectedTail = one.data
+        expected_head = three.data
+        expected_middle = two.data
+        expected_tail = one.data
 
-        actualHead = ll.data
-        actualMiddle = ll.next.data
-        actualTail = ll.next.next.data
+        actual_head = ll.data
+        actual_middle = ll.next.data
+        actual_tail = ll.next.next.data
 
-        self.assertEqual(expectedHead, actualHead)
-        self.assertEqual(expectedMiddle, actualMiddle)
-        self.assertEqual(expectedTail, actualTail)
+        self.assertEqual(expected_head, actual_head)
+        self.assertEqual(expected_middle, actual_middle)
+        self.assertEqual(expected_tail, actual_tail)
