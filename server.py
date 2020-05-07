@@ -5,6 +5,11 @@ import node
 api = Flask(__name__)
 
 
+@api.route('/ping', method=['GET'])
+def ping():
+    return "ack", 200
+
+
 @api.route('/reverse', methods=['POST'])
 def post_to_reverse():
     err = None
