@@ -92,3 +92,7 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(expected_head, actual_head)
         self.assertEqual(expected_middle, actual_middle)
         self.assertEqual(expected_tail, actual_tail)
+
+
+if __name__ == '__main__':
+    unittest.main()

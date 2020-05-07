@@ -2,6 +2,9 @@ run:
 	pip3 install --no-cache-dir -r requirements.txt
 	python3 ./server.py
 
+test:
+	python3 -m unittest test_linkedlist.TestLinkedList
+
 docker_build:
 	docker build --tag coolstuff:1.0 .
 
