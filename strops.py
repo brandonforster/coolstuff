@@ -14,3 +14,19 @@ def is_unique(test: str):
 
     # if we fell through here, it means we never entered the loop
     return True
+
+
+def is_unique_slow(test: str):
+    hashmap = dict()
+
+    # the ascii table, minus crap nobody uses
+    for i in range(ord(" "), ord("~")):
+        hashmap[chr(i)] = False
+
+    for letter in test:
+        if hashmap[letter]:
+            return False
+
+        hashmap[letter] = True
+
+    return True
