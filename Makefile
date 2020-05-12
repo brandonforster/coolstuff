@@ -4,6 +4,7 @@ run:
 
 test:
 	python3 -m unittest test_linkedlist.TestLinkedList
+	python3 -m unittest test_strops.TestIsUnique
 
 docker_build:
 	docker build --tag coolstuff:1.0 .
