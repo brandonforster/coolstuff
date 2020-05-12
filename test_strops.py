@@ -8,7 +8,7 @@ class TestIsUnique(unittest.TestCase):
         self.assertTrue(is_unique(""))
 
     def test_unique(self):
-        self.assertTrue(is_unique("unique"))
+        self.assertTrue(is_unique("honda"))
 
     def test_not_unique(self):
-        self.assertFalse(is_unique("racecar"))
+        self.assertFalse(is_unique("snakes"))
