@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "05c7a6af-82f2-4751-b690-f92c8a3df243",
+		"_postman_id": "48ec3b2e-17bb-478c-890c-ab40e2947b12",
 		"name": "Coolstuff",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "cc7aac46-9754-4228-974d-71e1f0b2dc96",
+						"id": "16d38fc9-9ce6-4f4b-a5ef-e3c141b8ebe0",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -58,7 +58,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "cc7aac46-9754-4228-974d-71e1f0b2dc96",
+						"id": "d07d9d6e-a2e7-4805-ad20-bac6fcf1074f",
 						"exec": [
 							"pm.test(\"Status code is 500\", function () {",
 							"    pm.response.to.have.status(500);",
@@ -100,7 +100,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "dcc5a93e-0ca9-4b17-8bf7-50d598d172c7",
+						"id": "b4b45282-14e0-4137-b49f-73d58e4bf679",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -127,6 +127,51 @@
 					"port": "5000",
 					"path": [
 						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Is Unique",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4b45282-14e0-4137-b49f-73d58e4bf679",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Expected string is received\", function () {",
+							"    var textData = pm.response.text();",
+							"    pm.expect(textData).to.eql(\"true\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "honda"
+				},
+				"url": {
+					"raw": "http://localhost:5000/isunique",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"isunique"
 					]
 				}
 			},
