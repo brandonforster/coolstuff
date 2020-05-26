@@ -1,7 +1,7 @@
 import time
 import unittest
 
-from strops import is_unique, is_unique_slow
+from strops import is_unique, is_unique_slow, is_palindrome
 
 
 class TestIsUnique(unittest.TestCase):
@@ -29,3 +29,12 @@ class TestIsUnique(unittest.TestCase):
 
     def test_not_unique_slow(self):
         self.assertFalse(is_unique_slow("snakes"))
+
+    def test_is_palindrome_true(self):
+        self.assertTrue(is_palindrome("tacocat"))
+
+    def test_is_palindrome_false(self):
+        self.assertFalse(is_palindrome("brandon"))
+
+    def test_is_palindrome_false_order(self):
+        self.assertFalse(is_palindrome("ttaacco"))

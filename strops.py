@@ -1,4 +1,4 @@
-def is_unique(test: str):
+def is_unique(test: str) -> bool:
     # start at 1 so index is always ahead of the loop
     i = 1
     for letter in test:
@@ -16,7 +16,7 @@ def is_unique(test: str):
     return True
 
 
-def is_unique_slow(test: str):
+def is_unique_slow(test: str) -> bool:
     hashmap = dict()
 
     # the ascii table, minus crap nobody uses
@@ -30,3 +30,7 @@ def is_unique_slow(test: str):
         hashmap[letter] = True
 
     return True
+
+
+def is_palindrome(test: str) -> bool:
+    return False
