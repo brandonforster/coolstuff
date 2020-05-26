@@ -4,7 +4,7 @@ import unittest
 from strops import is_unique, is_unique_slow, is_palindrome
 
 
-class TestIsUnique(unittest.TestCase):
+class TestIsStringOps(unittest.TestCase):
     def setUp(self):
         self._started_at = time.time()
 

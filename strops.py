@@ -33,4 +33,11 @@ def is_unique_slow(test: str) -> bool:
 
 
 def is_palindrome(test: str) -> bool:
-    return False
+    for i in range(len(test)):
+        fwd = test[i]
+        rev = test[::-1][i]
+
+        if fwd != rev:
+            return False
+
+    return True
