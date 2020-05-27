@@ -161,7 +161,10 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "honda"
+					"raw": "honda",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:5000/isunique",
@@ -172,6 +175,54 @@
 					"port": "5000",
 					"path": [
 						"isunique"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Is Palindrome Permutation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0ef3682e-2940-4996-9561-80c3db3442ae",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Expected string is received\", function () {",
+							"    var textData = pm.response.text();",
+							"    pm.expect(textData).to.eql(\"true\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "tac act",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/ispalindrome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"ispalindrome"
 					]
 				}
 			},

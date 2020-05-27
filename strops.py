@@ -33,11 +33,25 @@ def is_unique_slow(test: str) -> bool:
 
 
 def is_palindrome(test: str) -> bool:
-    for i in range(len(test)):
-        fwd = test[i]
-        rev = test[::-1][i]
+    sort = sorted(test)
+    letterfreq = dict()
+    for letter in sort:
+        if letter not in letterfreq:
+            letterfreq[letter] = 1
+        else:
+            letterfreq[letter] += 1
 
-        if fwd != rev:
-            return False
+    # palindromes must have exactly the same number of letters, except for potentially one letter.
+    # init the letter count to the first letter in the dict
+    lettercount = letterfreq[sort[0]]
+    mismatch = False
+
+    for freq in letterfreq.values():
+        if freq != lettercount:
+            # if there was already a mismatch, this is not a palindrome
+            if mismatch:
+                return False
+            else:
+                mismatch = True
 
     return True

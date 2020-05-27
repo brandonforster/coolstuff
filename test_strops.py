@@ -33,8 +33,11 @@ class TestIsStringOps(unittest.TestCase):
     def test_is_palindrome_true(self):
         self.assertTrue(is_palindrome("tacocat"))
 
-    def test_is_palindrome_false(self):
-        self.assertFalse(is_palindrome("brandon"))
+    def test_is_palindrome_true_order(self):
+        self.assertTrue(is_palindrome("ttaacco"))
 
-    def test_is_palindrome_false_order(self):
-        self.assertFalse(is_palindrome("ttaacco"))
+    def test_is_palindrome_true_symbols(self):
+        self.assertTrue(is_palindrome("!=+=!"))
+
+    def test_is_palindrome_false(self):
+        self.assertFalse(is_palindrome("taco cat"))
