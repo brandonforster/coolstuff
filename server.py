@@ -2,6 +2,7 @@ import werkzeug
 from flask import Flask, json, request
 import linkedlist
 import node
+from gridops import rotate_image
 from strops import is_unique, is_palindrome
 
 api = Flask(__name__)
@@ -54,6 +55,18 @@ def get_is_palindrome():
         return "server error, please check input or try again", 500
 
     return json.dumps(is_palindrome(body)), 200
+
+
+@api.route('/rotate', methods=['GET'])
+def get_rotate():
+    try:
+        # cache data = True, parse as text = True
+        body = request.get_data(True, True)
+
+    except (AttributeError, ConnectionError, werkzeug.exceptions.BadRequest):
+        return "server error, please check input or try again", 500
+
+    return json.dumps(rotate_image(body)), 200
 
 
 if __name__ == '__main__':
