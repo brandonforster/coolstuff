@@ -1,5 +1,4 @@
 import unittest
-from typing import List
 
 from gridops import rotate_image
 
