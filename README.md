@@ -1,6 +1,6 @@
 # coolstuff
 
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/brandonforster/coolstuff?style=for-the-badge)
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/brandonforster/coolstuff?style=for-the-badge)](https://hub.docker.com/repository/docker/brandonforster/coolstuff/)
 
 ## How to use
 The easiest way to run the application is to use the Makefile.
