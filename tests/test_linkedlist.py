@@ -1,14 +1,15 @@
 import unittest
 
-import linkedlist
-from node import Node
+from api.linkedlist.node import Node
+from api.linkedlist.linkedlist import LinkedList
+from api.server import api
 
 
 class TestLinkedList(unittest.TestCase):
     def test_add(self):
         one = Node("one")
         two = Node("two")
-        ll = linkedlist.LinkedList(one)
+        ll = LinkedList(one)
 
         ll.add(two)
 
@@ -17,7 +18,7 @@ class TestLinkedList(unittest.TestCase):
 
     def test_add_no_head(self):
         one = Node("one")
-        ll = linkedlist.LinkedList()
+        ll = LinkedList()
 
         ll.add(one)
 
@@ -27,7 +28,7 @@ class TestLinkedList(unittest.TestCase):
         one = Node("one")
         two = Node("two")
         three = Node("three")
-        ll = linkedlist.LinkedList(one)
+        ll = LinkedList(one)
         ll.add(two)
         ll.add(three)
 
@@ -40,7 +41,7 @@ class TestLinkedList(unittest.TestCase):
         one = Node("one")
         two = Node("two")
         three = Node("three")
-        ll = linkedlist.LinkedList(one)
+        ll = LinkedList(one)
         ll.add(two)
         ll.add(three)
 
@@ -52,7 +53,7 @@ class TestLinkedList(unittest.TestCase):
         one = Node("one")
         two = Node("two")
         three = Node("three")
-        ll = linkedlist.LinkedList(one)
+        ll = LinkedList(one)
         ll.add(two)
         ll.add(three)
 
@@ -63,7 +64,7 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_array_empty(self):
-        ll = linkedlist.LinkedList()
+        ll = LinkedList()
 
         expected = []
 
@@ -75,7 +76,7 @@ class TestLinkedList(unittest.TestCase):
         one = Node("one")
         two = Node("two")
         three = Node("three")
-        ll = linkedlist.LinkedList(one)
+        ll = LinkedList(one)
         ll.add(two)
         ll.add(three)
 

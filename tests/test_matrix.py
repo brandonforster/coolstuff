@@ -1,9 +1,9 @@
 import unittest
 
-from gridops import rotate_image, zero_out
+from api.matrix.operations import rotate_image, zero_out
 
 
-class TestGridOps(unittest.TestCase):
+class TestMatrixOperations(unittest.TestCase):
     def test_rotate(self):
         start_img = [[1, 0, 0, 1],
                      [1, 0, 0, 1],

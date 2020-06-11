@@ -1,10 +1,10 @@
 import time
 import unittest
 
-from strops import is_unique, is_unique_slow, is_palindrome
+from api.strings.operations import is_unique, is_unique_slow, is_palindrome
 
 
-class TestIsStringOps(unittest.TestCase):
+class TestIsStringOperations(unittest.TestCase):
     def setUp(self):
         self._started_at = time.time()
 

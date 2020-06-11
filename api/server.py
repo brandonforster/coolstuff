@@ -1,9 +1,9 @@
 import werkzeug
 from flask import Flask, json, request
-import linkedlist
-import node
-from gridops import rotate_image, zero_out
-from strops import is_unique, is_palindrome
+from api.linkedlist import node
+from api.linkedlist.linkedlist import LinkedList
+from api.matrix.operations import rotate_image, zero_out
+from api.strings.operations import is_unique, is_palindrome
 
 api = Flask(__name__)
 
@@ -17,7 +17,7 @@ def ping():
 def post_to_reverse():
     try:
         body = request.get_json()
-        ll = linkedlist.LinkedList()
+        ll = LinkedList()
         last = node.Node
 
         for data in body:
@@ -27,7 +27,7 @@ def post_to_reverse():
                 last.next = cur
 
             ll.add(cur)
-    except (AttributeError, ConnectionError, werkzeug.exceptions.BadRequest) as err:
+    except (AttributeError, ConnectionError, werkzeug.exceptions.BadRequest):
         return "server error, please check input or try again", 500
 
     return json.dumps(ll.reverse().to_array()), 200
