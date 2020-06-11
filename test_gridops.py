@@ -1,6 +1,6 @@
 import unittest
 
-from gridops import rotate_image
+from gridops import rotate_image, zero_out
 
 
 class TestGridOps(unittest.TestCase):
@@ -45,6 +45,6 @@ class TestGridOps(unittest.TestCase):
                        [0, 0, 0, 0],
                        [1, 0, 0, 1]]
 
-        actual_grid = rotate_image(start_grid)
+        actual_grid = zero_out(start_grid)
 
         self.assertEqual(expect_grid, actual_grid)
