@@ -13,3 +13,7 @@ def rotate_image(img: List[List[int]]) -> List[List[int]]:
         rotated[x].reverse()
 
     return rotated
+
+
+def zero_out(grid: List[List[int]]) -> List[List[int]]:
+    return grid

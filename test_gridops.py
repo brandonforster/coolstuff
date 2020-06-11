@@ -33,3 +33,18 @@ class TestGridOps(unittest.TestCase):
         actual_img = rotate_image(start_img)
 
         self.assertEqual(expect_img, actual_img)
+
+    def test_zero_out(self):
+        start_grid = [[1, 1, 0, 1],
+                      [1, 1, 1, 1],
+                      [1, 0, 1, 1],
+                      [1, 1, 1, 1]]
+
+        expect_grid = [[0, 0, 0, 0],
+                       [1, 0, 0, 1],
+                       [0, 0, 0, 0],
+                       [1, 0, 0, 1]]
+
+        actual_grid = rotate_image(start_grid)
+
+        self.assertEqual(expect_grid, actual_grid)
