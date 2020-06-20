@@ -1,4 +1,8 @@
-class Node:
+from abc import ABC
+
+
+class Node(ABC):
+
     def __init__(self, data):
         self.data = data
-        self.next = None
+        super().__init__()

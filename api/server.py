@@ -1,6 +1,6 @@
 import werkzeug
 from flask import Flask, json, request
-from api.model import node
+from api.model import singlyLinkNode
 from api.linkedlist.linkedList import LinkedList
 from api.matrix.operations import rotate_image, zero_out
 from api.strings.operations import is_unique, is_palindrome
@@ -18,10 +18,10 @@ def post_to_reverse():
     try:
         body = request.get_json()
         ll = LinkedList()
-        last = node.Node
+        last = singlyLinkNode.SinglyLinkedNode
 
         for data in body:
-            cur = node.Node(data)
+            cur = singlyLinkNode.SinglyLinkedNode(data)
             # guard clause for the first element
             if last is not None:
                 last.next = cur

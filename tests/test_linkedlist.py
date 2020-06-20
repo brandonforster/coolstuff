@@ -1,14 +1,14 @@
 import unittest
 
-from api.model.node import Node
+from api.model.singlyLinkNode import SinglyLinkedNode
 from api.linkedlist.linkedList import LinkedList
 from api.server import api
 
 
 class TestLinkedList(unittest.TestCase):
     def test_add(self):
-        one = Node("one")
-        two = Node("two")
+        one = SinglyLinkedNode("one")
+        two = SinglyLinkedNode("two")
         ll = LinkedList(one)
 
         ll.add(two)
@@ -17,7 +17,7 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(two.data, ll.head.next.data)
 
     def test_add_no_head(self):
-        one = Node("one")
+        one = SinglyLinkedNode("one")
         ll = LinkedList()
 
         ll.add(one)
@@ -25,9 +25,9 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(one.data, ll.head.data)
 
     def test_delete(self):
-        one = Node("one")
-        two = Node("two")
-        three = Node("three")
+        one = SinglyLinkedNode("one")
+        two = SinglyLinkedNode("two")
+        three = SinglyLinkedNode("three")
         ll = LinkedList(one)
         ll.add(two)
         ll.add(three)
@@ -38,9 +38,9 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(three.data, ll.head.next.data)
 
     def test_tail(self):
-        one = Node("one")
-        two = Node("two")
-        three = Node("three")
+        one = SinglyLinkedNode("one")
+        two = SinglyLinkedNode("two")
+        three = SinglyLinkedNode("three")
         ll = LinkedList(one)
         ll.add(two)
         ll.add(three)
@@ -50,9 +50,9 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(three.data, actual)
 
     def test_array(self):
-        one = Node("one")
-        two = Node("two")
-        three = Node("three")
+        one = SinglyLinkedNode("one")
+        two = SinglyLinkedNode("two")
+        three = SinglyLinkedNode("three")
         ll = LinkedList(one)
         ll.add(two)
         ll.add(three)
@@ -73,9 +73,9 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_reverse(self):
-        one = Node("one")
-        two = Node("two")
-        three = Node("three")
+        one = SinglyLinkedNode("one")
+        two = SinglyLinkedNode("two")
+        three = SinglyLinkedNode("three")
         ll = LinkedList(one)
         ll.add(two)
         ll.add(three)

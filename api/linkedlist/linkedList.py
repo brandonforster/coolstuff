@@ -1,11 +1,11 @@
-from api.model import node
+from api.model import singlyLinkNode
 
 
 class LinkedList:
-    def __init__(self, head: node.Node = None):
+    def __init__(self, head: singlyLinkNode.SinglyLinkedNode = None):
         self.head = head
 
-    def tail(self) -> node.Node:
+    def tail(self) -> singlyLinkNode.SinglyLinkedNode:
         pointer = self.head
 
         while pointer.next is not None:
@@ -13,7 +13,7 @@ class LinkedList:
 
         return pointer
 
-    def add(self, new: node.Node) -> None:
+    def add(self, new: singlyLinkNode.SinglyLinkedNode) -> None:
         if self.head is None:
             self.head = new
             return
