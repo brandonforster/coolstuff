@@ -4,7 +4,7 @@ from api.graph.operations import find_route
 from api.model.multiLinkedNode import MultiLinkedNode
 
 
-class TestGraph(unittest.TestCase):
+class TestFindRoute(unittest.TestCase):
     def test_graph_with_route(self):
         end = MultiLinkedNode('end', [])
         middle = MultiLinkedNode('middle', [end])
