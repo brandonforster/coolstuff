@@ -1,7 +1,7 @@
 import werkzeug
 from flask import Flask, json, request
-from api.linkedlist import node
-from api.linkedlist.linkedlist import LinkedList
+from api.model import node
+from api.linkedlist.linkedList import LinkedList
 from api.matrix.operations import rotate_image, zero_out
 from api.strings.operations import is_unique, is_palindrome
 

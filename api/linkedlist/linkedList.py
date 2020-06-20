@@ -1,4 +1,4 @@
-from api.linkedlist import node
+from api.model import node
 
 
 class LinkedList:

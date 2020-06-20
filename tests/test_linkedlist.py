@@ -1,7 +1,7 @@
 import unittest
 
-from api.linkedlist.node import Node
-from api.linkedlist.linkedlist import LinkedList
+from api.model.node import Node
+from api.linkedlist.linkedList import LinkedList
 from api.server import api
 
 
