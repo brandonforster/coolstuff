@@ -81,5 +81,19 @@ def get_rotate():
     return json.dumps(zero_out(body)), 200
 
 
+@api.route('/route', methods=['GET'])
+def find_route():
+    try:
+        # cache data = True, parse as text = True
+        body = request.get_data(True, True)
+        start = body[0]
+        end = body[1]
+
+    except (AttributeError, ConnectionError, werkzeug.exceptions.BadRequest):
+        return "server error, please check input or try again", 500
+
+    return json.dumps(find_route(start, end)), 200
+
+
 if __name__ == '__main__':
     api.run(host='0.0.0.0')
