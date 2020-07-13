@@ -70,7 +70,7 @@ def get_rotate():
 
 
 @api.route('/zero', methods=['GET'])
-def get_rotate():
+def get_zero():
     try:
         # cache data = True, parse as text = True
         body = request.get_data(True, True)

@@ -94,6 +94,25 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(expected_middle, actual_middle)
         self.assertEqual(expected_tail, actual_tail)
 
+    def test_cycle(self):
+        alpha = SinglyLinkedNode("A")
+        bravo = SinglyLinkedNode("B")
+        charlie = SinglyLinkedNode("C")
+        delta = SinglyLinkedNode("D")
+        echo = SinglyLinkedNode("E")
+
+        ll = LinkedList(alpha)
+        ll.add(bravo)
+        ll.add(charlie)
+        ll.add(delta)
+
+        echo.next = charlie
+        delta.next = echo
+
+        expected_cycle_head = charlie
+
+        self.assertEqual(expected_cycle_head, ll.cycle_head())
+
 
 if __name__ == '__main__':
     unittest.main()

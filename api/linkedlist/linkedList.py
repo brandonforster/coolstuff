@@ -1,11 +1,11 @@
-from api.model import singlyLinkNode
+from api.model.singlyLinkNode import SinglyLinkedNode
 
 
 class LinkedList:
-    def __init__(self, head: singlyLinkNode.SinglyLinkedNode = None):
+    def __init__(self, head: SinglyLinkedNode = None):
         self.head = head
 
-    def tail(self) -> singlyLinkNode.SinglyLinkedNode:
+    def tail(self) -> SinglyLinkedNode:
         pointer = self.head
 
         while pointer.next is not None:
@@ -13,7 +13,7 @@ class LinkedList:
 
         return pointer
 
-    def add(self, new: singlyLinkNode.SinglyLinkedNode) -> None:
+    def add(self, new: SinglyLinkedNode) -> None:
         if self.head is None:
             self.head = new
             return
@@ -64,3 +64,16 @@ class LinkedList:
             array.append(pointer.data)
 
         return array
+
+    def cycle_head(self) -> SinglyLinkedNode:
+        traversed = {}
+
+        cur = self.head
+        while cur.next is not None:
+            if traversed.get(cur.data):
+                return cur
+
+            traversed[cur.data] = True
+
+            cur = cur.next
+
