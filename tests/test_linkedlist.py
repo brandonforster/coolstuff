@@ -113,6 +113,26 @@ class TestLinkedList(unittest.TestCase):
 
         self.assertEqual(expected_cycle_head, ll.cycle_head())
 
+    def test_no_dupes(self):
+        one = SinglyLinkedNode("one")
+        two = SinglyLinkedNode("two")
+        two2 = SinglyLinkedNode("two")
+        ll = LinkedList(one)
+        ll.add(two)
+        ll.add(two2)
+
+        ll.no_dupes()
+
+        expected_size = 2
+
+        actual_size = 0
+        cur = ll.get_head()
+        while cur is not None:
+            actual_size += 1
+            cur = cur.next
+
+        self.assertEqual(expected_size, actual_size)
+
 
 if __name__ == '__main__':
     unittest.main()

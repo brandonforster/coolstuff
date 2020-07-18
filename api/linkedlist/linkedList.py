@@ -5,6 +5,9 @@ class LinkedList:
     def __init__(self, head: SinglyLinkedNode = None):
         self.head = head
 
+    def get_head(self):
+        return self.head
+
     def tail(self) -> SinglyLinkedNode:
         pointer = self.head
 
@@ -74,6 +77,19 @@ class LinkedList:
                 return cur
 
             traversed[cur.data] = True
+
+            cur = cur.next
+
+    def no_dupes(self):
+        items = []
+        cur = self.get_head()
+        tail = None
+        while cur is not None:
+            if cur.data not in items:
+                items.append(cur.data)
+                tail = cur
+            else:
+                tail.next = cur.next
 
             cur = cur.next
 
