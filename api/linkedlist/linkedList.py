@@ -93,3 +93,29 @@ class LinkedList:
 
             cur = cur.next
 
+    def is_palindrome(self):
+        cur = self.head
+
+        freq = {}
+
+        while cur.next is not None:
+            if cur.data in freq:
+                freq[cur.data] += 1
+            else:
+                freq[cur.data] = 1
+            cur = cur.next
+
+        # palindromes must have exactly the same number of letters, except for potentially one letter.
+        # init the letter count to the first letter in the dict
+        count = freq[self.head.data]
+        mismatch = False
+
+        for f in freq.values():
+            if f != count:
+                # if there was already a mismatch, this is not a palindrome
+                if mismatch:
+                    return False
+                else:
+                    mismatch = True
+
+        return True

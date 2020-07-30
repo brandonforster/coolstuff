@@ -133,6 +133,16 @@ class TestLinkedList(unittest.TestCase):
 
         self.assertEqual(expected_size, actual_size)
 
+    def test_palindrome(self):
+        one = SinglyLinkedNode("one")
+        two = SinglyLinkedNode("two")
+        one2 = SinglyLinkedNode("one")
+        ll = LinkedList(one)
+        ll.add(two)
+        ll.add(one2)
+
+        self.assertTrue(ll.is_palindrome())
+
 
 if __name__ == '__main__':
     unittest.main()
