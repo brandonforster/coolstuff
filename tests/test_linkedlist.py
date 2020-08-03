@@ -2,7 +2,6 @@ import unittest
 
 from api.model.singlyLinkNode import SinglyLinkedNode
 from api.linkedlist.linkedList import LinkedList
-from api.server import api
 
 
 class TestLinkedList(unittest.TestCase):
@@ -142,6 +141,32 @@ class TestLinkedList(unittest.TestCase):
         ll.add(one2)
 
         self.assertTrue(ll.is_palindrome())
+
+    def test_intersection(self):
+        alpha = LinkedList(SinglyLinkedNode("A"))
+        alpha.add(SinglyLinkedNode("B"))
+        alpha.add(SinglyLinkedNode("C"))
+
+        brandon = LinkedList(SinglyLinkedNode("B"))
+        brandon.add(SinglyLinkedNode("R"))
+        brandon.add(SinglyLinkedNode("F"))
+
+        expected_intersection = "B"
+
+        self.assertEqual(expected_intersection, alpha.intersection(brandon))
+
+    def test_no_intersection(self):
+        alpha = LinkedList(SinglyLinkedNode("A"))
+        alpha.add(SinglyLinkedNode("B"))
+        alpha.add(SinglyLinkedNode("C"))
+
+        brandon = LinkedList(SinglyLinkedNode("D"))
+        brandon.add(SinglyLinkedNode("E"))
+        brandon.add(SinglyLinkedNode("F"))
+
+        expected_intersection = None
+
+        self.assertEqual(expected_intersection, alpha.intersection(brandon))
 
 
 if __name__ == '__main__':

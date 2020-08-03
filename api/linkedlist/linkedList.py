@@ -1,3 +1,5 @@
+from typing import Optional
+
 from api.model.singlyLinkNode import SinglyLinkedNode
 
 
@@ -119,3 +121,20 @@ class LinkedList:
                     mismatch = True
 
         return True
+
+    def intersection(self, other):
+        cur = self.head
+
+        nodes = {}
+
+        while cur.next is not None:
+            nodes[cur.data] = True
+            cur = cur.next
+
+        cur = other.head
+        while cur.next is not None:
+            if cur.data in nodes:
+                return cur.data
+            cur = cur.next
+
+        return
